@@ -16,3 +16,9 @@ $ yarn build
 ## Debug
 
 Press F8
+
+## Test
+
+```
+$ yarn jest
+```
