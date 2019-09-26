@@ -6,21 +6,25 @@ export default class Vehicle {
   private fuel: number; // 0~100
   private rpm: number; // 0~10
 
-  constructor(numberOfWheels: number, wheels: Wheel[], fuel: number, rpm: number = 10) {
+  constructor(numberOfWheels: number = 4, typeOfWheel: string = "iron", fuel: number = 0, rpm: number = 10) {
     this.numberOfWheels = numberOfWheels;
-    this.wheels = wheels;
+    this.wheels = [];
     this.fuel = fuel;
     this.rpm = rpm;
+    for (let i = 0; i < numberOfWheels; i++) {
+      this.wheels.push(new Wheel(typeOfWheel));
+    }
   }
-  public getNumberOfWheels() {
+
+  public getNumberOfWheels(): number {
     return this.numberOfWheels;
   }
 
-  public getFuel() {
+  public getFuel(): number {
     return this.fuel;
   }
 
-  public drive() {
+  public drive(): void {
     this.wheels.forEach(wheel => wheel.setNewRPM(this.rpm));
   }
 }

@@ -1,29 +1,35 @@
 import Bike from "../Bike";
-import Wheel from "../Wheel";
 
 test("Bike Wheels length", () => {
-  const bike = new Bike(4, [new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic")], 100);
-  expect(bike.wheels.length).toBe(4);
-  expect(bike.getNumberOfWheels()).toBe(4);
+  const bike = new Bike();
+  expect(bike.wheels.length).toBe(2);
+  expect(bike.getNumberOfWheels()).toBe(2);
 });
 
 test("Bike Fuel", () => {
-  const bike = new Bike(4, [new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic")], 100);
-  expect(bike.getFuel()).toBe(100);
+  const bikes: Bike[] = [new Bike(), new Bike(30), new Bike(80)];
+  const fuelResults: number[] = [0, 30, 80];
+  bikes.forEach((bike, i) => {
+    expect(bike.getFuel()).toBe(fuelResults[i]);
+  });
 });
 
-test("Bike Fuel after start", () => {
-  const bike = new Bike(4, [new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic")], 100);
-  expect(bike.getFuel()).toBe(100);
+test("Bike Fuel after drive", () => {
+  const fuel = 78;
+  const bike = new Bike(fuel);
+  expect(bike.getFuel()).toBe(fuel);
 });
 
 test("Bike Wheels Rpm", () => {
-  const bike = new Bike(4, [new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic")], 100);
+  const bike = new Bike();
   bike.wheels.forEach(wheel => expect(wheel.rpm).toBe(0));
 });
 
 test("Bike Wheels Rpm after drive", () => {
-  const bike = new Bike(4, [new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic")], 100);
-  bike.drive();
-  bike.wheels.forEach(wheel => expect(wheel.rpm).toBe(10));
+  const bikeRpm: number[] = [5, 8];
+  bikeRpm.forEach(rpm => {
+    const bike = new Bike(100, rpm);
+    bike.drive();
+    bike.wheels.forEach(wheel => expect(wheel.rpm).toBe(rpm));
+  });
 });

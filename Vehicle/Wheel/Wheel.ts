@@ -1,9 +1,9 @@
 export default class Wheel {
-  public kind: string;
+  public material: string;
   public rpm: number = 0;
 
-  constructor(kind: any) {
-    this.kind = kind;
+  constructor(material: string) {
+    this.material = material;
   }
 
   public setNewRPM(r: number) {
