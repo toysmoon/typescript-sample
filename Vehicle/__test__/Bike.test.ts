@@ -22,8 +22,8 @@ test("Bike Wheels Rpm", () => {
   bike.wheels.forEach(wheel => expect(wheel.rpm).toBe(0));
 });
 
-test("Bike Wheels Rpm after start", () => {
+test("Bike Wheels Rpm after drive", () => {
   const bike = new Bike(4, [new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic"), new Wheel("plastic")], 100);
-  bike.start();
-  bike.wheels.forEach(wheel => expect(wheel.rpm).toBe(8));
+  bike.drive();
+  bike.wheels.forEach(wheel => expect(wheel.rpm).toBe(10));
 });

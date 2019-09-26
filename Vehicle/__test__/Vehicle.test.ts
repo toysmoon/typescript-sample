@@ -16,3 +16,9 @@ test("Vehicle Wheels Rpm", () => {
   const vehicle = new Vehicle(4, [new Wheel("ion"), new Wheel("ion"), new Wheel("ion"), new Wheel("ion")], 100);
   vehicle.wheels.forEach(wheel => expect(wheel.rpm).toBe(0));
 });
+
+test("Vehicle Wheels Rpm after drive", () => {
+  const vehicle = new Vehicle(4, [new Wheel("ion"), new Wheel("ion"), new Wheel("ion"), new Wheel("ion")], 100);
+  vehicle.drive();
+  vehicle.wheels.forEach(wheel => expect(wheel.rpm).toBe(10));
+});
