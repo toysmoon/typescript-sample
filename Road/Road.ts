@@ -1,5 +1,4 @@
 import { Vehicle } from "../Vehicle";
-import { arrayTypeAnnotation } from "@babel/types";
 
 export default class Road {
   private vehicleList: Vehicle[] = [];
