@@ -14,11 +14,19 @@ describe("Road", () => {
     expect(road.isRoadEmpty()).toBe(false);
   });
 
-  it("function getOn", () => {
+  it("function getOn(Vehicle)", () => {
     const car = new Car();
     const bike = new Bike();
     road.getOn(car);
     road.getOn(bike);
+    expect(road.getVehicleCount()).toBe(2);
+  });
+
+  it("function getOn(Vehicle:[]])", () => {
+    const car = new Car();
+    const bike = new Bike();
+    road.getOn([car, bike]);
+    expect(road.getVehicleCount()).toBe(2);
   });
 
   it("function getVehicleCount", () => {

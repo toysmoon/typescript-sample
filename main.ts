@@ -5,8 +5,7 @@ const road = new Road();
 const car = new Car(100, 5, "rubber");
 const bike = new Bike(50, 8, "rubber");
 
-road.getOn(car);
-road.getOn(bike);
+road.getOn([car, bike]);
 car.drive();
 bike.drive();
 
