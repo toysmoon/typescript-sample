@@ -1,2 +1,2 @@
-import Wheel from "./Wheel";
+import Wheel from './Wheel';
 export default Wheel;

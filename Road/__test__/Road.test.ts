@@ -1,20 +1,20 @@
-import Road from "../Road";
-import { Car, Bike } from "../../Vehicle";
+import { Car, Bike } from '../../Vehicle';
+import Road from '../Road';
 
-describe("Road", () => {
+describe('Road', () => {
   let road: Road;
 
   beforeEach(() => {
     road = new Road();
   });
 
-  it("function isRoadEmpty", () => {
+  it('function isRoadEmpty', () => {
     expect(road.isRoadEmpty()).toBe(true);
     road.getOn(new Car());
     expect(road.isRoadEmpty()).toBe(false);
   });
 
-  it("function getOn(Vehicle)", () => {
+  it('function getOn(Vehicle)', () => {
     const car = new Car();
     const bike = new Bike();
     road.getOn(car);
@@ -22,14 +22,14 @@ describe("Road", () => {
     expect(road.getVehicleCount()).toBe(2);
   });
 
-  it("function getOn(Vehicle:[]])", () => {
+  it('function getOn(Vehicle:[]])', () => {
     const car = new Car();
     const bike = new Bike();
     road.getOn([car, bike]);
     expect(road.getVehicleCount()).toBe(2);
   });
 
-  it("function getVehicleCount", () => {
+  it('function getVehicleCount', () => {
     const car = new Car();
     const bike = new Bike();
     expect(road.getVehicleCount()).toBe(0);

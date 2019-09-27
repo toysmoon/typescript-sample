@@ -1,4 +1,4 @@
-import { Vehicle } from "../Vehicle";
+import { Vehicle } from '../Vehicle';
 
 export default class Road {
   private vehicleList: Vehicle[] = [];
