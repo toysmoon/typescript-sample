@@ -1,16 +1,14 @@
-import { Vehicle, Car, Bike } from "./Vehicle";
-import Wheel from "./Vehicle/Wheel";
+import { Road } from "./Road";
+import { Car, Bike } from "./Vehicle";
 
-const road: Vehicle[] = [];
+const road = new Road();
+const car = new Car(100, 5, "rubber");
+const bike = new Bike(50, 8, "rubber");
 
-const car = new Car(4, [new Wheel("rubber"), new Wheel("rubber"), new Wheel("rubber"), new Wheel("ribber")], 100);
-
-const bike = new Bike(2, [new Wheel("plastic"), new Wheel("plastic")], 50);
-
-road.push(car);
-road.push(bike);
-car.run();
-bike.start();
+road.getOn(car);
+road.getOn(bike);
+car.drive();
+bike.drive();
 
 console.log("All vehicles on road: ", road);
-console.log("isEmpty: ", car.isRoadEmpty(road));
+console.log("isEmpty: ", road.isRoadEmpty());
